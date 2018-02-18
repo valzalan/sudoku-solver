@@ -134,7 +134,8 @@ function fill(){
       if(grid2[i-1][j-1] == 0){
         c.value = "";
       }else{
-        c.value = grid2[i-1][j-1];
+        grid[i-1][j-1] = grid2[i-1][j-1];
+        c.value = grid[i-1][j-1];
       }
     }
   }
