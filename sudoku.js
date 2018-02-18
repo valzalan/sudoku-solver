@@ -154,24 +154,17 @@ function clearGrid(){
 }
 
 function loadNumber(cell, field, input){
-  console.log(cell);
-  console.log(input);
   let key = input.keyCode;
   let id = cell.split("");
   let row = id[1];
   let col = id[3];
   if((grid[row-1][col-1]) != 0) return false;
-  console.log(key);
   if(!isNaN(input.key)){
-    console.log("Number!");
     let num = parseInt(input.key, 10);
     grid[row-1][col-1] = num;
-    console.log(grid[row-1][col-1]);
   }else{
     grid[row-1][col-1] = 0;
     field.value = "";
-    console.log("Not a number");
-    console.log(grid[row-1][col-1]);
   }
 }
 
