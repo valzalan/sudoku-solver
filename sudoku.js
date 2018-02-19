@@ -59,21 +59,13 @@ function sudokuSolver(){
   }
 
   function isSafe(num, cell){
-
-    //scanning row
+    //scanning row and column
     for(i=0; i<9; i++){
-      if(grid[cell.row][i] == num && i != cell.col){
+      if((grid[cell.row][i] == num && i != cell.col) ||
+         (grid[i][cell.col] == num && i != cell.row)){
         return false;
       }
     }
-
-    //scanning column
-    for(i=0; i<9; i++){
-      if(grid[i][cell.col] == num && i != cell.row){
-        return false;
-      }
-    }
-
     //scanning box
     boxStartRow = (cell.row >= 3) ? (cell.row >= 6 ? 6 : 3) : 0;
     boxStartCol = (cell.col >= 3) ? (cell.col >= 6 ? 6 : 3) : 0;
@@ -87,7 +79,7 @@ function sudokuSolver(){
     }
     return true;
   }
-
+  
   // utility function to print the numbers
   function write(){
     let cell, c;
