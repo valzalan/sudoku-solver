@@ -1,4 +1,7 @@
-//sudokuSolver();
+//                   Created by Zalán Valkó
+//                   Last edit: 2018.02.19
+//  Solves the sudoku using a recursive backtracking algorithm
+
 let grid = [[0,0,0, 0,0,0, 0,0,0,],
             [0,0,0, 0,0,0 ,0,0,0,],
             [0,0,0, 0,0,0, 0,0,0,],
@@ -19,7 +22,6 @@ function sudokuSolver(){
     }
 
   function findUnAssigned(){
-    let i, j, row, col;
     for(i=0; i<9; i++){
       for(j=0; j<9; j++){
         if(grid[i][j] == 0){
@@ -44,14 +46,12 @@ function sudokuSolver(){
       for(num=1; num<=9; num++){
         if(isSafe(num, cell)){
           grid[cell.row][cell.col] = num;
-          //write();         //debug
           if(solve()){
             return true;
           }
         }
       }
       grid[cell.row][cell.col] = 0;
-      //write();            //debug
       return false;         //triggers backtracking
     }else{
       return true;
@@ -59,35 +59,24 @@ function sudokuSolver(){
   }
 
   function isSafe(num, cell){
-    let i, j;
 
+    //scanning row
     for(i=0; i<9; i++){
       if(grid[cell.row][i] == num && i != cell.col){
         return false;
       }
     }
 
+    //scanning column
     for(i=0; i<9; i++){
       if(grid[i][cell.col] == num && i != cell.row){
         return false;
       }
     }
 
-    if(cell.row < 3){
-      boxStartRow = 0;
-    }else if(cell.row < 6){
-      boxStartRow = 3;
-    }else{
-      boxStartRow = 6;
-    }
-
-    if(cell.col < 3){
-      boxStartCol = 0;
-    }else if(cell.col < 6){
-      boxStartCol = 3;
-    }else{
-      boxStartCol = 6;
-    }
+    //scanning box
+    boxStartRow = (cell.row >= 3) ? (cell.row >= 6 ? 6 : 3) : 0;
+    boxStartCol = (cell.col >= 3) ? (cell.col >= 6 ? 6 : 3) : 0;
 
     for(i=boxStartRow; i<(boxStartRow + 3); i++){
       for(j=boxStartCol; j<(boxStartCol + 3); j++){
@@ -101,8 +90,7 @@ function sudokuSolver(){
 
   // utility function to print the numbers
   function write(){
-    let cell;
-    let c, i, j;
+    let cell, c;
     for(i=1; i<=9; i++){
       for(j=1; j<=9; j++){
         cell = `r${i}c${j}`;
@@ -113,6 +101,8 @@ function sudokuSolver(){
   }
 }
 
+//placeholder function to fill in a preset -- going to be replaced
+//by a generator function in the future
 function fill(){
   let grid2 = [[0,4,1, 9,0,0, 3,0,0,],
               [0,0,0, 0,0,2 ,0,0,0,],
@@ -125,8 +115,7 @@ function fill(){
               [1,0,0, 6,8,0, 0,0,4,],
               [0,0,0, 5,0,0 ,0,0,0,],
               [0,0,9, 0,0,1, 7,5,0]];
-  let cell;
-  let c, i, j;
+  let cell, c;
   for(i=1; i<=9; i++){
     for(j=1; j<=9; j++){
       cell = `r${i}c${j}`;
@@ -141,9 +130,9 @@ function fill(){
   }
 }
 
+//utility function -- assigns 0 to every cell
 function clearGrid(){
-  let cell;
-  let c, i, j;
+  let cell, c;
   for(i=1; i<=9; i++){
     for(j=1; j<=9; j++){
       cell = `r${i}c${j}`;
@@ -154,27 +143,21 @@ function clearGrid(){
   }
 }
 
-function loadNumber(cell, field, input){
+//utility function to assign input to grid and delete if del or bckspc pressed
+function loadNumber(cell, input){
   let key = input.keyCode;
-  let id = cell.split("");
-  let row = id[1];
-  let col = id[3];
+  let temp = cell.split("");
+  let row = temp[1];
+  let col = temp[3];
   if((grid[row-1][col-1]) != 0) return false;
+  if(key == 8 && key == 46){    //user pressed backspace or delete
+    grid[row-1][col-1] = 0;
+  }
   if(!isNaN(input.key)){
     let num = parseInt(input.key, 10);
     grid[row-1][col-1] = num;
-  }else{
-    grid[row-1][col-1] = 0;
+  }else{                          //input was not a number
+    grid[row-1][col-1] = 0;      //0 necessary for clarity
     field.value = "";
-  }
-}
-
-function clearNumber(cell, input){
-  let key = input.keyCode;
-  let id = cell.split("");
-  let row = id[1];
-  let col = id[3];
-  if(key == 8){
-    grid[row-1][col-1] = 0;
   }
 }
