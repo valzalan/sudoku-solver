@@ -1,3 +1,6 @@
+                  <!-- Created by Zalán Valkó
+                       Last edit: 2018.02.19 -->
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -23,7 +26,7 @@
           tableString += '<td class = "divider"></td>';
         }else{
           tableString += '<td><input type = "text" id = "'+ `r${cellR}c${cellC}`
-          + '" onkeyup = "loadNumber(this.id, this, event)" maxlength = "1" onkeydown = "clearNumber(this.id, event)"></td>';
+          + '" maxlength = "1" onkeyup = "loadNumber(this.id, event)" onkeydown = "loadNumber(this.id, event)"></td>';
           cellC++;
         }
       }
