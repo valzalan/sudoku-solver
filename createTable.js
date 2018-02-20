@@ -1,5 +1,7 @@
  //draws the grid and assigns unique id to input fields
-    let tableString = "<table>";
+function createTable(){    
+
+	let tableString = "<table>";
     let div = document.createElement("div");
     let cellR = 1, cellC = 1;
     let cellId;
@@ -25,3 +27,4 @@
     tableString += "</table>";
     div.innerHTML = tableString;
     document.body.appendChild(div);
+}
