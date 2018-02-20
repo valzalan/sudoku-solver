@@ -15,11 +15,13 @@ let grid = [[0,0,0, 0,0,0, 0,0,0,],
             [0,0,0, 0,0,0, 0,0,0]];
 
 function sudokuSolver(){
-    if(solve()){
-      write();
-    }else{
-      alert("There is no solution");
-    }
+    if(checkInput()){
+		if(solve()){
+    	  	write();
+    	}else{
+      		alert("There is no solution");
+    	}
+	}
 
   function findUnAssigned(){
     for(i=0; i<9; i++){
@@ -152,4 +154,32 @@ function loadNumber(cell, input, field){
     grid[row-1][col-1] = 0;      //0 necessary for clarity
     field.value = "";
   }
+}
+
+function checkInput(){
+	//scanning row and column
+	for(row=0; row<9; row++){	
+		for(col=0; col<9; col++){    
+			for(i=0; i<9; i++){
+      			if((grid[row][i] == num && i != col) ||
+        	 		(grid[i][col] == num && i != row)){
+        		return false;
+      			}
+    		}
+		}
+	}
+    //scanning box
+    boxStartRow = (row >= 3) ? (row >= 6 ? 6 : 3) : 0;
+    boxStartCol = (col >= 3) ? (col >= 6 ? 6 : 3) : 0;
+
+    for(i=boxStartRow; i<(boxStartRow + 3); i++){
+      for(j=boxStartCol; j<(boxStartCol + 3); j++){
+        if((grid[i][j] == num) && (i != row) && (j != col)){
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
 }
