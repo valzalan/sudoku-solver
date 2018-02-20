@@ -15,15 +15,12 @@ let grid = [[0,0,0, 0,0,0, 0,0,0,],
             [0,0,0, 0,0,0, 0,0,0]];
 
 function sudokuSolver(){
-    if(checkInput()){
-		if(solve()){
+	
+	if(solve()){
     	  	write();
     	}else{
       		alert("There is no solution");
     	}
-	}else{
-		alert("There is no solution");
-	}
 
   function findUnAssigned(){
     for(i=0; i<9; i++){
@@ -152,24 +149,21 @@ function loadNumber(cell, input, field){
   if(!isNaN(input.key)){
     let num = parseInt(input.key, 10);
     grid[row-1][col-1] = num;
+	if(!checkInput(num, row, col)) alert("Contradiction!");
   }else{                          //input was not a number
     grid[row-1][col-1] = 0;      //0 necessary for clarity
     field.value = "";
   }
 }
 
-function checkInput(){
+function checkInput(num, row, col){
 	//scanning row and column
-	for(row=0; row<9; row++){	
-		for(col=0; col<9; col++){    
-			for(i=0; i<9; i++){
-      			if((grid[row][i] == num && i != col) ||
-        	 		(grid[i][col] == num && i != row)){
-        		return false;
-      			}
-    		}
-		}
-	}
+	for(i=0; i<9; i++){
+      	if((grid[row][i] == num && i != col) ||
+    	 	(grid[i][col] == num && i != row)){
+       	return false;
+   		}
+ 	}
     //scanning box
     boxStartRow = (row >= 3) ? (row >= 6 ? 6 : 3) : 0;
     boxStartCol = (col >= 3) ? (col >= 6 ? 6 : 3) : 0;
@@ -182,6 +176,4 @@ function checkInput(){
       }
     }
     return true;
-  }
-
 }
