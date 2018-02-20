@@ -136,7 +136,7 @@ function clearGrid(){
 }
 
 //utility function to assign input to grid and delete if del or bckspc pressed
-function loadNumber(cell, input){
+function loadNumber(cell, input, field){
   let key = input.keyCode;
   let temp = cell.split("");
   let row = temp[1];
