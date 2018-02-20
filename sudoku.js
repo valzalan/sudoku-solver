@@ -21,6 +21,8 @@ function sudokuSolver(){
     	}else{
       		alert("There is no solution");
     	}
+	}else{
+		alert("There is no solution");
 	}
 
   function findUnAssigned(){
