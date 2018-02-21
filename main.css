@@ -1,5 +1,5 @@
 /*                   Created by Zalán Valkó
-                     Last edit: 2018.02.19
+                     Last edit: 2018.02.21
 */
 
 @charset "UTF-8";
@@ -41,7 +41,7 @@ td:hover{
 }
 
 .divider{
-    background-color: white;
+    background-color: #F5F5F5;
     border: none;
     margin: 0px;
     padding: 2px;
@@ -49,7 +49,7 @@ td:hover{
     width: 4px;
 }
 .divider:hover{
-  background-color: white;
+  background-color: #F5F5F5;
 }
 
 #button_container{
@@ -69,10 +69,10 @@ input{
 
 .buttons{
   border: none;
-  background-color: white;
+  background-color: #F5F5F5;
 }
 .buttons:hover{
-  background-color: white;
+  background-color: #F5F5F5;
 }
 
 .box_border{
