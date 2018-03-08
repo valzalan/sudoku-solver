@@ -90,41 +90,13 @@ function sudokuSolver(){
     let cell, c;
     for(i=0; i<9; i++){
       for(j=0; j<9; j++){
+        if(grid[i][j] == 0) continue;
         cell = `r${i}c${j}`;
         c = document.getElementById(cell);
         c.value = grid[i][j];
       }
     }
   }
-
-//placeholder function to fill in a preset -- going to be replaced
-//by a generator function in the future
-function generateSudoku(){
-  let grid2 = [[0,4,1, 9,0,0, 3,0,0,],
-              [0,0,0, 0,0,2 ,0,0,0,],
-              [7,0,0, 0,4,6, 0,0,1,],
-
-              [9,2,7, 0,0,0 ,0,0,3,],
-              [0,0,0, 0,0,0, 0,0,0,],
-              [6,0,0, 0,0,0 ,4,9,8,],
-
-              [1,0,0, 6,8,0, 0,0,4,],
-              [0,0,0, 5,0,0 ,0,0,0,],
-              [0,0,9, 0,0,1, 7,5,0]];
-  let cell, c;
-  for(i=0; i<9; i++){
-    for(j=0; j<9; j++){
-      cell = `r${i}c${j}`;
-      c = document.getElementById(cell);
-      if(grid2[i][j] == 0){
-        c.value = "";
-      }else{
-        grid[i][j] = grid2[i][j];
-        c.value = grid[i][j];
-      }
-    }
-  }
-}
 
 //utility function -- assigns 0 to every cell
 function clearGrid(){
@@ -135,6 +107,8 @@ function clearGrid(){
       grid[i][j] = 0;
       c = document.getElementById(cell);
       c.value = "";
+      c.readOnly = false;
+      c.style.backgroundColor = "";
     }
   }
 }
@@ -160,7 +134,6 @@ function loadNumber(cell, input, field){
   }else{                          //input was not a number
     grid[row][col] = 0;      //0 necessary for clarity
     field.value = "";
-    console.log("Not a number. In cell: " + grid[row][col]);
   }
 }
 
