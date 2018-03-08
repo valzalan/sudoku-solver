@@ -1,3 +1,7 @@
+//                   Created by Zalán Valkó
+//                   Last edit: 2018.03.08
+//        Randomly generates a grid then removes a set number of cells
+//        to create a solvable puzzle
 
 function generateSudoku(){
   clearGrid();
