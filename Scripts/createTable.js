@@ -1,7 +1,8 @@
 //                   Created by Zalán Valkó
 //                   Last edit: 2018.02.21
 //   draws the grid and assigns unique id to input fields
-	let tableString = "<table>";
+
+		let tableString = "<table>";
     let div = document.createElement("div");
     let cellR = 0, cellC = 0;
     let cellId;
