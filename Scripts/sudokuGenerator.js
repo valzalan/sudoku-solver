@@ -1,22 +1,12 @@
-//                   Created by Zalán Valkó
-//                   Last edit: 2018.03.08
-//        Randomly generates a grid then removes a set number of cells
-//        to create a solvable puzzle
+//                Created & maintained by Zalán Valkó
+//                   Last modification: 2018.03.10
+//    Randomly generates a grid then removes a set number of cells
+//                    to create a solvable puzzle
 
 function generateSudoku(){
   clearGrid();
-  let num;
-  let i, j;
-  //fill up the left-upmost box with random numbers
-  for(i=0; i<3; i++){
-    for(j=0; j<3; j++){
-      let cell = new Cell(i, j);
-      do{
-        num = Math.floor((Math.random() * 9) +1);
-      }while(!isSafe(num, cell));
-      grid[i][j] = num;
-    }
-  }
+
+  //prefilled cells in the puzzle will be uneditable and a darker colour
   for(i=0; i<9; i++){
     for(j=0; j<9; j++){
       c = document.getElementById(`r${i}c${j}`);
@@ -24,6 +14,7 @@ function generateSudoku(){
       c.style.backgroundColor = "#D0D6E2";
     }
   }
+
   randomSolve();
   removeNumbers();
   write();
@@ -72,13 +63,14 @@ function randomSolve(){
       }while(!noNumLeft(usedNumbers))
         grid[cell.row][cell.col] = 0;
         return false;         //triggers backtracking
-      }else{
-        return true;
-      }
-    function noNumLeft(usedNumbers){
-      for(i=0; i<9; i++){
-        if(usedNumbers[i] == 0) return false;
-      }
-      return true;
+  }else{
+    return true;
+  }
+
+  function noNumLeft(usedNumbers){
+    for(i=0; i<9; i++){
+      if(usedNumbers[i] == 0) return false;
     }
- }
+    return true;
+  }
+}
