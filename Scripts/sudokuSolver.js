@@ -1,6 +1,6 @@
-//                   Created by Zalán Valkó
-//                   Last edit: 2018.02.21
-//  Solves the sudoku using a recursive backtracking algorithm
+//                 Created & maintained by Zalán Valkó
+//                    Last modification: 2018.03.10
+//      Solves the sudoku using a recursive backtracking algorithm
 
 let grid = [[0,0,0, 0,0,0, 0,0,0,],
             [0,0,0, 0,0,0 ,0,0,0,],
@@ -15,7 +15,7 @@ let grid = [[0,0,0, 0,0,0, 0,0,0,],
             [0,0,0, 0,0,0, 0,0,0]];
 
 function sudokuSolver(){
-  if(isSolvable()){
+  if(isSolvable()){ //if there's an illegal number, don't attempt to solve
     if(solve()){
       write();
     }else{
@@ -121,6 +121,7 @@ function loadNumber(cell, input, field){
   let col = temp[3];
   if(key == 8 || key == 46){    //user pressed backspace or delete
     grid[row][col] = 0;
+    field.value = "";
     return;
   }
   if((grid[row][col]) != 0) return;
@@ -132,15 +133,18 @@ function loadNumber(cell, input, field){
     }
     return;
   }else{                          //input was not a number
-    grid[row][col] = 0;      //0 necessary for clarity
+    grid[row][col] = 0;           //previously entered number might still be assigned, avoid confusion
     field.value = "";
   }
 }
 
+//searches for illegalities
 function isSolvable(){
   let row = 0; col = 0;
   let i, j;
   let num, boxStartRow, boxStartCol;
+
+  //scanning rows
   for(row = 0; row<9; row++){
     for(i=0; i<9; i++){
       num = grid[row][i];
@@ -153,6 +157,7 @@ function isSolvable(){
     }
   }
 
+  //scanning columns
   for(col = 0; col<9; col++){
     for(i=0; i<9; i++){
       num = grid[i][col];
@@ -164,6 +169,8 @@ function isSolvable(){
       }
     }
   }
+
+  //scanning boxes
   for(row=0; row<9; row++){
     for(col=0; col<9; col++){
       num = grid[row][col];
