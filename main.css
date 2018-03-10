@@ -1,5 +1,5 @@
-/*                   Created by Zalán Valkó
-                     Last edit: 2018.02.21
+/*                    Created & maintained by Zalán Valkó
+                         Last modification: 2018.02.21
 */
 
 @charset "UTF-8";
@@ -78,8 +78,3 @@ input{
 .box_border{
     border-bottom: solid #A9A9A9 2px;
 }
-/*
-#r1c1{
-  box-shadow: inset 0px 0px 2px 1px rgba(15,22,38,0.77);
-}
-*/
