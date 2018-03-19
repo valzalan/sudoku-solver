@@ -1,7 +1,7 @@
 //                 Created & maintained by Zalán Valkó
 //                    Last modification: 2018.03.19
 //                          Utility functions:
-// loadNumber(); clearGrid(); writeGrid(); isSolvable(); checkIfSolved();
+// getInput(); clearGrid(); writeGrid(); isSolvable(); checkIfSolved();
 
 Sudoku.prototype.getInput = function(input){
   let allowedKeys = [8, 9, 37, 38, 39, 40, 46, 49,
