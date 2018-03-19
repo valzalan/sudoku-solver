@@ -1,11 +1,11 @@
 /*                    Created & maintained by Zalán Valkó
-                         Last modification: 2018.02.21
+                         Last modification: 2018.03.19
 */
 
 @charset "UTF-8";
 
 body{
-  background-color: #F5F5F5;
+  background-color: #FEFFFF /*#F5F5F5*/;
 }
 
 h1{
@@ -17,7 +17,7 @@ h1{
 
 table{
   border-radius: 3px;
-  border: solid #0F1626 2px;
+  border: solid #6B7A8F 2px;
   padding: 0px;
   margin-right: auto;
   margin-left: auto;
@@ -26,6 +26,7 @@ table{
 tr{
   border-radius: 3px;
 }
+
 td{
   border-radius: 3px;
   border: solid #6B7A8F 1px;
@@ -36,45 +37,63 @@ td{
   text-align: center;
   vertical-align: middle;
 }
+
 td:hover{
   background-color: #c2c7d6;
 }
 
 .divider{
-    background-color: #F5F5F5;
-    border: none;
-    margin: 0px;
-    padding: 2px;
-    height: 4px;
-    width: 4px;
+  background-color: #FEFFFF;
+  border: none;
+  margin: 0px;
+  padding: 2px;
+  height: 4px;
+  width: 4px;
 }
+
 .divider:hover{
-  background-color: #F5F5F5;
+  background-color: #FEFFFF;
 }
 
 #button_container{
   border: none;
   background-color: none;
+  margin-top: 30px;
 }
 
 input{
-    width: 40px;
-    height: 40px;
-    border: none;
-    background-color: rgba(0,0,0,0);
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: rgba(0,0,0,0);
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
 	color: black;
 }
 
-.buttons{
+.buttonCell{
   border: none;
-  background-color: #F5F5F5;
+  background-color: #FEFFFF;
 }
-.buttons:hover{
-  background-color: #F5F5F5;
+
+.buttonCell:hover{
+  background-color: #FEFFFF;
 }
 
 .box_border{
-    border-bottom: solid #A9A9A9 2px;
+  border-bottom: solid #A9A9A9 2px;
+}
+
+button{
+  background-color: #FF533D;
+  border: none;
+  border-radius: 2px;
+  padding: 10px;
+  font-size: 16px;
+  color: #FEFFFF;
+  font-family: 'Montserrat', sans-serif;
+}
+
+button:hover{
+  background-color: #9B3123;
 }
