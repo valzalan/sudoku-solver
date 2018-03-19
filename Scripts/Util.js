@@ -143,5 +143,8 @@ Sudoku.prototype.isSolvable = function(){
 };
 
 Sudoku.prototype.checkIfSolved = function(){
-  return Boolean(!this.findUnassigned() && this.isSolvable()); //There's no empty cell & no contradictions
+  if(!this.findUnassigned() && this.isSolvable()){  //There's no empty cell & no contradictions
+    alert("Congratulations, you solved it!");
+  }
+  return;
 };

@@ -16,7 +16,7 @@ for(i=1; i<=11; i++){
       tableString += '<td class = "divider"></td>';
     }else{
       tableString += '<td><input type = "text" id = "'+ `r${row}c${col}`
-                  + '" maxlength = "1" onkeydown = "sudoku.getInput(event)"; sudoku.checkIfSolved()></td>';
+                  + '" maxlength = "1" onkeydown = "sudoku.getInput(event); sudoku.checkIfSolved()"></td>';
       col++;
     }
   }
