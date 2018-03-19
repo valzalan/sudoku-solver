@@ -84,7 +84,7 @@ Sudoku.prototype.getInput = function(input){
         document.getElementById(`r${cell.row}c${cell.col}`).focus();
         break;
 
-      //rightArrow
+      //downArrow
       case 40:
         if(cell.row == 8){
           cell.row = 0;
