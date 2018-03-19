@@ -103,8 +103,8 @@ Sudoku.prototype.getInput = function(input){
 };
 
 Sudoku.prototype.clearGrid = function(){
-  for(row=0; row<9; row++){
-    for(col=0; col<9; col++){
+  for(let row=0; row<9; row++){
+    for(let col=0; col<9; col++){
       let cell = document.getElementById(`r${row}c${col}`);
       cell.value = "";
       cell.readOnly = false;
@@ -115,8 +115,8 @@ Sudoku.prototype.clearGrid = function(){
 };
 
 Sudoku.prototype.writeGrid = function(){
-  for(row=0; row<9; row++){
-    for(col=0; col<9; col++){
+  for(let row=0; row<9; row++){
+    for(let col=0; col<9; col++){
       if(this.grid[row][col] == 0) continue;
       let cell = document.getElementById(`r${row}c${col}`);
       cell.value = this.grid[row][col];
@@ -126,8 +126,8 @@ Sudoku.prototype.writeGrid = function(){
 
 //returns true if there's no contradiction in the grid
 Sudoku.prototype.isSolvable = function(){
-  for(row=0; row<9; row++){
-    for(col=0; col<9; col++){
+  for(let row=0; row<9; row++){
+    for(let col=0; col<9; col++){
       let cell = new Cell(row, col);
       let num = this.grid[row][col];
       if(num == 0) continue;
