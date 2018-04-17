@@ -36,7 +36,7 @@ Sudoku.prototype.getInput = function(input){
     return;
   }
 
-  if(isNaN(input.keyCode)) return;       //Don't try to assign if NaN
+  if(isNaN(input.key)) return;       //Don't try to assign if NaN
 
   if((this.grid[cell.row][cell.col]) != 0) return; //Although input fields are limited to one char, key is still read in
                                                    //so we need to prevent overrides
