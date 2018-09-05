@@ -33,6 +33,7 @@ gulp.task( "js", function () {
         .bundle()
         .pipe( source( "bundle.js" ))
         .pipe( buffer())
+        .pipe( uglify())
         .on( "error", log.error )
         .pipe( gulp.dest( "./dist/scripts/" ));
 });
