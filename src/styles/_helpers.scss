@@ -1,0 +1,46 @@
+//-------------
+//    Fonts
+//-------------
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900");
+
+@mixin montserrat($weight: 400, $size: 1rem, $color: white){
+  font-family: "Montserrat", sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
+}
+
+//------------------
+//    Animations
+//------------------
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+//-----------------
+//    Variables
+//-----------------
+
+//  white
+$primary-color: #FEFFFF;
+//  TODO: Maybe switch with accent?
+//  orange
+$secondary-color: #FF533D;
+//  blue
+$accent-color: #6B7A8F; //	hsl(215, 14%, 49%);

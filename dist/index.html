@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sudoku solver and game app"/>
+    <meta name="keywords" content="sudoku, solver, puzzle, recursive algorithm"/>
+    <meta name="author" content="Zalan Valko"/>
+    <meta name="theme-color" content="">
+
+    <title>Sudoku Solver</title>
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body>
+    <div id="modal">
+      <h2 id="modal-text"></h2>
+      <img src="img/close.svg" alt="close" id="close"/>
+    </div>
+    <h1 id="title">Sudoku Solver</h1>
+    <div class="tips">
+      <p>Some tips:</p>
+      <ul>
+        <li>Hit <strong>'Enter'</strong> to solve the puzzle.</li>
+        <li>Hit <strong>'Space'</strong> to clear the whole grid.</li>
+      </ul>
+    </div>
+    <table id = "button_container">
+      <tr>
+        <td class="buttonCell">
+          <button type="button" id="btn-solve">Solve</button>
+        </td>
+        <td class="buttonCell">
+          <button type="button" id="btn-clear">Clear</button>
+        </td>
+        <td class="buttonCell">
+          <button tpye="button" id="btn-make">Make</button>
+        </td>
+      </tr>
+    </table>
+  <script src="scripts/bundle.js"></script>
+  </body>
+</html>

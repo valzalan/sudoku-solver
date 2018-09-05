@@ -1,2 +1,6 @@
-old_sudokuGenerator.js
-old_sudokuSolver.js
+node_modules/
+src/scripts/_old_sudokuGenerator.js
+src/scripts/_old_sudokuSolver.js
+src/scripts/solver.js
+src/scripts/generator.js
+*.map

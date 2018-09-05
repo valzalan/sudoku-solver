@@ -1,0 +1,133 @@
+
+@import "_reset";
+@import "_helpers";
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: $primary-color;
+  background-image: linear-gradient(to bottom, $primary-color, #efefef);
+}
+
+h1 {
+  @include montserrat(600, 3vw, $secondary-color);
+  text-align: center;
+  margin: .6em 0;
+}
+
+table {
+  margin: 0 auto;
+}
+
+td {
+  border: solid $accent-color 1px;
+  border-radius: 3px;
+  width: 3vw;
+  height: 3vw;
+  background-color: hsl(215, 25%, 90%);
+
+  &:hover {
+    background-color: hsl(215, 25%, 80%);
+  }
+
+  &:nth-of-type( 3n + 0 ) {
+    margin-left: 1em;
+  }
+
+  &.divider {
+    opacity: 0;
+    width: .4vw;
+  }
+}
+
+tr.divider {
+  height: .4vw;
+}
+
+input {
+  @include montserrat(400, 16px, black);
+  text-align: center;
+  width: 3vw;
+  height: 3vw;
+  border: none;
+  background-color: rgba(0,0,0,0);
+}
+
+.tips {
+  position: absolute;
+  top: 30px;
+  left: 1em;
+
+  p {
+    @include montserrat(600, 14px, $secondary-color);
+  }
+
+  li {
+    @include montserrat(300, 12px, black);
+    letter-spacing: 1px;
+  }
+}
+
+#modal {
+  position: absolute;
+  display: none;
+  width: 30vw;
+  height: 30vh;
+  top: calc(50% - 15vh);
+  left: calc(50% - 15vw);
+  background-color: white;
+  box-shadow: 7px 7px 5px rgba(#333333, .6);
+  border-radius: 3px;
+  animation: scaleIn .15s ease;
+
+  &.animOut {
+    animation: scaleOut .15s ease;
+  }
+
+  h2 {
+    position: relative;
+    text-align: center;
+    top: calc(50% - 30px);
+    @include montserrat(500, 30px);
+  }
+
+  #close {
+    width: 30px;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    cursor: pointer;
+  }
+}
+
+//---------------
+//    Buttons
+//---------------
+
+#button_container {
+  margin: 6vh auto;
+  border-spacing: 5px;
+
+  td, tr, button {
+    background-color: transparent;
+    border: none;
+  }
+
+  button {
+    background-color: $secondary-color;
+    border-radius: 2px;
+    padding: 10px;
+    @include montserrat(300, 16px, $primary-color);
+
+    &:hover {
+      background-color: #9B3123;
+      cursor: pointer;
+    }
+
+    &:active {
+      position: relative;
+      transform: scale(.95);
+    }
+  }
+}
