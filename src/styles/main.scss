@@ -69,6 +69,10 @@ input {
   height: 3vw;
   border: none;
   background-color: rgba(0,0,0,0);
+  @media screen and( max-width: $screen-s ) {
+    width: 9vw;
+    height: 9vw;
+  }
 }
 
 #tips {
