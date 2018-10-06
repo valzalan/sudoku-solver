@@ -5,7 +5,7 @@
 body {
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: $primary-color;
   background-image: linear-gradient(to bottom, $primary-color, #efefef);
 }
@@ -14,6 +14,18 @@ h1 {
   @include montserrat(600, 3vw, $secondary-color);
   text-align: center;
   margin: .6em 0;
+
+  @media screen and( max-width: $screen-s ) {
+    font-size: 10vw;
+    margin-bottom: 1em;
+  }
+}
+
+.container {
+  @media screen and( max-width: $screen-s ) {
+    position: relative;
+    top: 8%;
+  }
 }
 
 table {
@@ -26,6 +38,11 @@ td {
   width: 3vw;
   height: 3vw;
   background-color: hsl(215, 25%, 90%);
+
+  @media screen and( max-width: $screen-s ) {
+    width: 9vw;
+    height: 9vw;
+  }
 
   &:hover {
     background-color: hsl(215, 25%, 80%);
@@ -54,13 +71,18 @@ input {
   background-color: rgba(0,0,0,0);
 }
 
-.tips {
+#tips {
   position: absolute;
   top: 30px;
   left: 1em;
 
+  @media screen and( max-width: $screen-s ) {
+    display: none;
+  }
+
   p {
     @include montserrat(600, 14px, $secondary-color);
+    margin-bottom: 1em;
   }
 
   li {
