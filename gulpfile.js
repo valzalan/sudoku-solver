@@ -70,4 +70,4 @@ gulp.task( "watch", function() {
 //    Default task
 //--------------------
 
-gulp.task( "default", [ "bundle-js", "sass" ] );
+gulp.task( "default", [ "js", "sass" ] );
