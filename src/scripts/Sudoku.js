@@ -1,19 +1,19 @@
 const util = require( "./util.js" );
 
 module.exports = class Sudoku {
-	constructor() {
-		//TODO: Maybe make it "private", and add set()?
-		this.grid = [[ 0, 0, 0,  0, 0, 0,  0, 0, 0 ],
-								[ 0, 0, 0,  0, 0, 0,  0, 0, 0 ],
-								[ 0, 0, 0,  0, 0, 0,  0, 0, 0 ],
+	constructor( size ) {
+		this.grid = this.initGrid( size )
+	}
 
-								[ 0, 0, 0,  0, 0, 0,  0, 0, 0 ],
-								[ 0, 0, 0,  0, 0, 0,  0, 0, 0 ],
-								[ 0, 0, 0,  0, 0, 0,  0, 0, 0 ],
-
-								[ 0, 0, 0,  0, 0, 0,  0, 0, 0 ],
-								[ 0, 0, 0,  0, 0, 0,  0, 0, 0 ],
-								[ 0, 0, 0,  0, 0, 0,  0, 0, 0 ]];
+	initGrid( size ) {
+		let grid = [];
+		for ( let i = 0; i < size; i++ ) {
+			grid[ i ] = [];
+			for ( let j = 0; j < size; j++ ) {
+				grid[ i ][ j ] = 0;
+			}
+		}
+		return grid;
 	}
 
 	solve() {

@@ -1,13 +1,10 @@
-//TODO: Add hotkey tips on loading page
-const createGrid = require( "./createGrid.js" ),
-			Sudoku = require( "./Sudoku.js" ),
+const Sudoku = require( "./Sudoku.js" ),
 			util = require( "./util.js" );
 
 ( function() {
 
-	createGrid();
-
-	let sudoku = new Sudoku();
+	let sudoku = new Sudoku( 9 );
+	util.createGrid();
 
 //----------------------
 //    Event handlers
@@ -95,12 +92,12 @@ const createGrid = require( "./createGrid.js" ),
 			util.lockCell( cell );
 		});
 
-		sudoku.removeNumbers(46);
+		sudoku.removeNumbers( 46 );
 		sudoku.writeGrid();
 	});
 
 	let modalClose = document.getElementById( "close" );
-	modalClose.addEventListener( "click", function(){
+	modalClose.addEventListener( "click", function() {
 		util._modal.hide();
 	});
 
