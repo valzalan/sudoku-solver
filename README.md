@@ -1,4 +1,4 @@
------A simple Sudoku wepapp-----
+-----A simple Sudoku webapp-----
 
 Can generate a puzzle, and also solve it with a backtracking algorithm.
 
